@@ -1,0 +1,130 @@
+/* Кнопки переключения */
+.controls {
+  display:flex;
+  justify-content: space-between;
+  margin-block-end: 20px;
+  position: absolute;
+right: 3%;
+top: 75%;
+}
+
+.button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.button-radio {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  inline-size: 86px;
+  block-size: 86px;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+}
+
+.button-radio + .button-radio {
+  margin-inline-start: 25px;
+}
+
+.button-radio.active {
+  background-color: #649de9;
+  pointer-events: none;
+}
+
+.button-radio:focus-visible {
+  outline: 3px solid white;
+  outline-offset: -1px;
+  background-color: #649de9;
+}
+
+.button-prev,
+.button-next {
+  position: absolute;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  border: none;
+  inline-size: 30px;
+  block-size: 42px;
+  background-color: transparent;
+  background-image: url(./images/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.button-prev[aria-disabled="true"],
+.button-next[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.button-prev {
+  inset-inline-start: -50px;
+}
+
+.button-next {
+  inset-inline-end: -50px;
+  transform: translateY(-50%) rotateY(180deg);
+  transform-origin: center;
+}
+
+/* Слайды */
+
+.slide-img {
+  /* display: block; */
+  /* inline-size: 100%; */
+  width: 99%;
+  /* block-size: 229px; */
+  height: 7%;
+  /* max-block-size: 175%; */
+  object-fit: cover;
+  border-radius: 1%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-inline-size: 100%;
+  /* max-height: 1; */
+  inline-size: 100%;
+
+  background-color: rgb(43, 43, 43);
+}
+
+.slides {
+  inline-size: 99%;
+  padding: 1%;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+
+  height: 550%;
+  font-size: 10em;
+  color:#FFFFFF
+}
+
+.slide--active {
+  display: block;
+}
+
+/* Разрешение */
+@media (max-width: 768px) {
+  .container {
+    max-inline-size: 260px;
+  }
+
+  .slide-img {
+    block-size: 400px;
+  }
+
+  .button-prev {
+    inset-inline-start: -40px;
+  }
+
+  .button-next {
+    inset-inline-end: -40px;
+  }
+}
