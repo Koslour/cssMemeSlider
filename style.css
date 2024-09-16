@@ -1,130 +1,82 @@
-/* Кнопки переключения */
-.controls {
-  display: flex;
-  justify-content: space-between;
-  margin-block-end: 20px;
-  position: absolute;
-  right: 2%;
-  top: 61%;
-}
-
-.button {
-  cursor: pointer;
-  user-select: none;
-}
-
-.button-radio {
-  background-color: transparent;
+html,
+body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  inline-size: 1em;
-  block-size: 1em;
-  border-radius: 50%;
-  border: 0.1em solid #649de9;
 }
 
-.button-radio+.button-radio {
-  margin-inline-start: 1em;
-}
-
-.button-radio.active {
-  background-color: #649de9;
-  pointer-events: none;
-}
-
-.button-radio:focus-visible {
-  outline: 3px solid white;
-  outline-offset: -1px;
-  background-color: #649de9;
-}
-
-.button-prev,
-.button-next {
-  position: absolute;
-  inset-block-start: 50%;
-  transform: translateY(-50%);
-  border: none;
-  inline-size: 30px;
-  block-size: 42px;
-  background-color: transparent;
-  background-image: url(./images/arrow.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.button-prev[aria-disabled="true"],
-.button-next[aria-disabled="true"] {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.button-prev {
-  inset-inline-start: -50px;
-}
-
-.button-next {
-  inset-inline-end: -50px;
-  transform: translateY(-50%) rotateY(180deg);
-  transform-origin: center;
+::-webkit-scrollbar{
+    width: 0;
 }
 
 /* Слайды */
-
-.slide-img {
-  /* display: block; */
-  inline-size: 100%;
-  /* block-size: 100%; */
-  /* width: 1250px; */
-  height: 700px;
-  /* max-block-size: 175%; */
-  object-fit: cover;
-  border-radius: 1%;
+.slider{
+    max-height: 53%;
+    max-width: 63%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-inline-size: 100%;
-
-  background-color: rgb(43, 43, 43);
-}
-
-.slides {
-  inline-size: 97%;
-  padding: 1%;
+.slides{
+    display: flex;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    height: 50em;
 }
 
 .slide {
-  display: none;
-  /* text-align: center; */
-
-  /* height: 550%; */
-  inline-size: 100%;
-  block-size: 100%;
-  font-size: 1em;
-  color: #FFFFFF
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 50em;
+    /* transform-origin: center center;
+    transform: scale(1);
+    scroll-snap-align: center; */
 }
 
-.slide--active {
-  display: block;
+h2{
+    color:#d6c311;
+    
+    display: flex;
+    font-size: 1em;
+    font-weight: normal;
+    text-align: left;
 }
 
-/* Разрешение */
-@media (max-width: 768px) {
-  .container {
-    max-inline-size: 260px;
-  }
+.slide__img {
+    width: 100%;
+    height: 50%;
+    border-radius: 3%;
+}
 
-  .slide-img {
-    block-size: 400px;
-  }
+.slider-container {
+    background: #3f3f3f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
 
-  .button-prev {
-    inset-inline-start: -40px;
-  }
 
-  .button-next {
-    inset-inline-end: -40px;
-  }
+/* Кнопки */
+.slider__nav {  
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slider__navlink {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    
+    border-radius: 50%;
+    border: 0.1em solid rgb(73, 72, 172);
+    margin: 0.3em;
+} 
+
+.slider__navlink:hover{
+    background-color:  rgb(89, 87, 196);
+    transition: 0.5s;
+    box-shadow: 10px 10px 20px rgab(36,36,36,0.5);
 }
